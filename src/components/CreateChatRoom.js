@@ -16,14 +16,14 @@ const CreateChatRoom = ({ onRoomCreated }) => {
     const payload = { roomName, description };
 
     try {
-      console.log("📡 Creating room with payload:", payload);
+      console.log("Creating room with payload:", payload);
       const response = await axios.post(API_URL, payload, {
         headers: { "Content-Type": "application/json" },
       });
-      console.log("✅ Room created:", response.data);
+      console.log("Room created:", response.data);
       onRoomCreated(response.data); // Callback to update parent component if needed
     } catch (err) {
-      console.error("❌ Error creating room:", err.response?.data || err);
+      console.error("Error creating room:", err.response?.data || err);
       setError("Error creating room. Please try again.");
     }
   };

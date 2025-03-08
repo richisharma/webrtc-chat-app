@@ -25,9 +25,9 @@ const GroupChat = () => {
 
     newConnection.start()
       .then(() => {
-        console.log("✅ SignalR connected in GroupChat");
+        console.log("SignalR connected in GroupChat");
       })
-      .catch(err => console.error("❌ GroupChat SignalR Connection Error:", err));
+      .catch(err => console.error("GroupChat SignalR Connection Error:", err));
 
     newConnection.on("ReceiveMessage", (sender, receivedMessage, room) => {
       // Only process messages for the current room
@@ -52,7 +52,7 @@ const GroupChat = () => {
         setJoined(true);
         console.log(`Joined room: ${roomId}`);
       } catch (err) {
-        console.error("❌ Error joining room:", err);
+        console.error("Error joining room:", err);
       }
     }
   };
@@ -65,7 +65,7 @@ const GroupChat = () => {
         setMessages([]);
         console.log(`Left room: ${roomId}`);
       } catch (err) {
-        console.error("❌ Error leaving room:", err);
+        console.error("Error leaving room:", err);
       }
     }
   };
@@ -78,12 +78,12 @@ const GroupChat = () => {
     if (!message.trim()) return;
 
     const payload = { sender: userId, roomId, message: message.trim() };
-    console.log("📡 Sending group message:", payload);
+    console.log("Sending group message:", payload);
     try {
       await sendMessage(payload);
       setMessage("");
     } catch (error) {
-      console.error("❌ Error sending group message:", error);
+      console.error("Error sending group message:", error);
     }
   };
 

@@ -70,7 +70,7 @@ const Chat = () => {
   // Handles sending messages
   const handleSendMessage = async () => {
     if (!message.trim()) {
-      console.error("❌ Cannot send empty message.");
+      console.error("Cannot send empty message.");
       return;
     }
 
