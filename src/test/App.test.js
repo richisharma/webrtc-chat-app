@@ -11,12 +11,12 @@ jest.mock("react-router-dom", () => ({
   Routes: ({ children }) => <div>{children}</div>,
   Route: ({ path, element }) => <div path={path}>{element}</div>,
 }));
-/*
+
 // Mock react-router-dom
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
   BrowserRouter: ({ children }) => <div>{children}</div>,
-}));*/
+}));
 
 test("renders App without crashing", () => {
   render(<App />);

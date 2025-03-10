@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import * as signalR from "@microsoft/signalr";
 import { sendMessage, getUserInfoFromToken } from "../services/api";
 
-const GroupChat = () => {
+const ChatRoom = () => {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
   const [roomId, setRoomId] = useState("");
@@ -122,4 +122,4 @@ const GroupChat = () => {
   );
 };
 
-export default GroupChat;
+export default ChatRoom;

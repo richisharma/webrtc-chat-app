@@ -4,7 +4,8 @@ import Login from "./components/Login";
 import Chat from "./components/Chat";
 import VideoCall from "./components/VideoCall";
 import Register from "./components/Register";
-import GroupChatPage from "./components/GroupChatPage";
+import ChatRoomPage from "./components/ChatRoomPage";
+import Features from "./components/Features";
 
 const AppContent = () => {
 
@@ -15,7 +16,8 @@ const AppContent = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/video-call" element={<VideoCall/>} />
-        <Route path="/group-chat" element={<GroupChatPage />} />
+        <Route path="/chat-room" element={<ChatRoomPage />} />
+        <Route path="/features" element={<Features />} />
         <Route path="*" element={<h2>404 - Page Not Found</h2>} />
       </Routes>
     </>

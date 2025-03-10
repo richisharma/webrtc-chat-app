@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { loginUser } from "../services/api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import Features from "./Features"
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -11,7 +12,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await loginUser(email, password);
-      navigate("/chat",{replace: true});
+      navigate("/features",{replace: true});
     } catch (error) {
       alert("Invalid credentials");
     }
@@ -25,6 +26,10 @@ const Login = () => {
         <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         <button type="submit">Login</button>
       </form>
+      New User? 
+      <Link to="/register">
+        Click here!
+      </Link>
     </div>
   );
 };

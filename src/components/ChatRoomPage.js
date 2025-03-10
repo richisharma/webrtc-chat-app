@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import CreateChatRoom from "./CreateChatRoom";
-import GroupChat from "./GroupChat";
+import ChatRoom from "./ChatRoom";
 
-const GroupChatPage = () => {
+const ChatRoomPage = () => {
   // State to hold the currently selected/created room
   const [currentRoom, setCurrentRoom] = useState(null);
 
@@ -14,16 +14,16 @@ const GroupChatPage = () => {
 
   return (
     <div>
-      <h2>Group Chat</h2>
+      <h2>Chat Room</h2>
       {/* If no room has been created/selected, show the CreateChatRoom component */}
       {!currentRoom ? (
         <CreateChatRoom onRoomCreated={handleRoomCreated} />
       ) : (
         // Once a room is created, load the group chat interface.
-        <GroupChat roomId={currentRoom.RoomId || currentRoom.roomId} />
+        <ChatRoom roomId={currentRoom.RoomId || currentRoom.roomId} />
       )}
     </div>
   );
 };
 
-export default GroupChatPage;
+export default ChatRoomPage;
