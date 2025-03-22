@@ -7,8 +7,6 @@ const Chat = () => {
   const [selectedUser, setSelectedUser] = useState(''); // Selected user for one-on-one chat
   const [messages, setMessages] = useState([]); // Chat messages
   const [message, setMessage] = useState(""); // Input message
-  const [selectedChatRoomId, setSelectedChatRoomId] = useState(null); // Chat room ID for group chat
-  const [isGroupChat, setIsGroupChat] = useState(false); // Boolean flag for chat type
 
   const user = getUserInfoFromToken(); // Get logged-in user info
 
@@ -58,13 +56,6 @@ const Chat = () => {
   // Handles user selection for private chat
   const handleSelectUser = (userId) => {
     setSelectedUser(userId);
-    setIsGroupChat(false); // Switch to private chat mode
-  };
-
-  // Handles chat room selection for group chat
-  const handleSelectChatRoom = (roomId) => {
-    setSelectedChatRoomId(roomId);
-    setIsGroupChat(true); // Switch to group chat mode
   };
 
   // Handles sending messages
@@ -78,11 +69,11 @@ const Chat = () => {
     const payload = {
       sender: user.UserId,
       message: message.trim(),
-      receiverId: isGroupChat ? null : selectedUser, // Receiver for one-on-one chat
-      roomId: isGroupChat ? selectedChatRoomId : null, // Room ID for group chat
+      receiverId: selectedUser, // Receiver for one-on-one chat
+      roomId: null
     };
 
-    if(!isGroupChat && payload.receiverId == ''){
+    if(payload.receiverId == ''){
       alert("select user to chat");
       return false;
     }
@@ -115,7 +106,7 @@ const Chat = () => {
 
       {/* Display selected chat target */}
       <h3>
-        Chat with {isGroupChat ? `Room ${selectedChatRoomId}` : `User ${selectedUser}`}
+        Chat with User {selectedUser}
       </h3>
 
       {/* Chat Messages */}
